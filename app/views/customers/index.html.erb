@@ -4,10 +4,25 @@
 
 <div id="customers">
   <% @customers.each do |customer| %>
-    <%= render customer %>
+    <%= customer.name %>
+    
     <p>
+    <% if customer.movies.present? %>
+    <p> <b> La peli que tiene arrendada por <%= customer.name %>  es </b> </p>
+    <% customer.movies.each do |movie| %>
+      <%= movie.title %>
+      <% end %>
+
+
+  <% else %>
+      <p> <b> No tiene pelicula arrendada </b> </p>
+  <% end %>
+</p>
+    
+
+
       <%= link_to "Show this customer", customer %>
-    </p>
+   
   <% end %>
 </div>
 

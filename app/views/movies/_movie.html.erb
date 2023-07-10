@@ -4,11 +4,16 @@
     <%= movie.title %>
   </p>
 
-  <p>
-    <strong>Customer:</strong>
-    <%= movie.customer.name %>
-  </p>
-
+  <% if movie.customer.present? %>
+    <p> <b>Clientes de <%= movie.title %>:</b> </p>
+    <ul>
+      <li><%= movie.customer.name %></li>
+    </ul>
+  <% else %>
+    <p> <b>No tiene clientes aún</b> </p>
+  <% end %>
 </div>
+
+
 
 <!-- linea 9 antes decia customer_id-->

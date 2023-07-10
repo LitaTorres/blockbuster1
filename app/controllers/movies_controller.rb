@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1 or /movies/1.json
   def show
+    @movies = Movie.all
   end
 
   # GET /movies/new
