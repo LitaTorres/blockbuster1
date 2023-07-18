@@ -1,27 +1,27 @@
 <%= form_with(model: movie) do |form| %>
-  <% if movie.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<% if movie.errors.any? %>
+<div style="color: red">
+  <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-      <ul>
-        <% movie.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% movie.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+<div style="margin-bottom: 10px;">
+  <%= form.label :title, "Título", style: "display: block; font-weight: bold;" %>
+  <%= form.text_field :title, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.label :customer_id, style: "display: block" %>
-    <%= form.select :customer_id, options_for_select( Customer.all.pluck( :name, :id)) %>
-  </div>
+<div style="margin-bottom: 10px;">
+  <%= form.label :customer_id, "Cliente",style: "display: block; font-weight: bold;" %>
+  <%= form.select :customer_id, options_for_select(Customer.all.pluck(:name, :id)), {}, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+<div style="margin-top: 10px;">
+  <%= form.submit "Guardar", class: "btn btn-primary" %>
+</div>
 <% end %>

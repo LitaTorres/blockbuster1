@@ -3,19 +3,19 @@
 <%= render @customer %>
 
 <% if @customer.movies.present? %>
-<p> <b> La peli que tiene arrendada por <%= @customer.name %>  es </b> </p>
+<p> <b> La pelicula que tiene arrendada por <%= @customer.name %> es </b> </p>
 <% @customer.movies.each do |movie| %>
-  <%= movie.title %>
-  <% end %>
+<%= movie.title %>
+<% end %>
 
 
 <% else %>
-  <p> <b> No tiene pelicula arrendada </b> </p>
+<p> <b> No tiene pelicula arrendada </b> </p>
 <% end %>
 
 <div>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
+  <%= link_to "Editar este cliente", edit_customer_path(@customer) %> |
+  <%= link_to "Volver a todos los clientes", customers_path %>
 
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+  <%= button_to "Eliminar este cliente", @customer, method: :delete %>
 </div>

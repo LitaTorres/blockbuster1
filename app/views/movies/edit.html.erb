@@ -1,10 +1,17 @@
-<h1>Editing movie</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <%= image_tag '16.jpg', class: "img-fluid", alt:"blockbuster", style: "width: 900px; height: 500px; object-fit: cover; margin-bottom: 40px;" %>
+    </div>
 
-<%= render "form", movie: @movie %>
-
-<br>
-
-<div>
-  <%= link_to "Show this movie", @movie %> |
-  <%= link_to "Back to movies", movies_path %>
+    <div class="col-4">
+      <h1>Editar esta Película</h1>
+      <%= render "form", movie: @movie %>
+      <br>
+      <div>
+        <%= link_to "Mostrar esta película", @movie %> |
+        <%= link_to "Volver a todas las películas", movies_path %>
+      </div>
+    </div>
+  </div>
 </div>

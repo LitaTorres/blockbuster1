@@ -1,29 +1,62 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1>Clientes</h1>
 
-<div id="customers">
-  <% @customers.each do |customer| %>
-    <%= customer.name %>
-    
-    <p>
-    <% if customer.movies.present? %>
-    <p> <b> La peli que tiene arrendada por <%= customer.name %>  es </b> </p>
-    <% customer.movies.each do |movie| %>
-      <%= movie.title %>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div id="clientes">
+        <% @customers.each do |customer| %>
+        <div class="cardresultados">
+          <div class="card mb-3">
+            <h3 class="card-text">
+              <%= customer.name %>
+            </h3>
 
+            <% if customer.movies.present? %>
+            <p class="card-text">
+              <b>La película arrendada por <%= customer.name %> es:</b>
+            </p>
+            <% customer.movies.each do |movie| %>
+            <p class="card-text"><%= movie.title %></p>
+            <% end %>
+            <% else %>
+            <p class="card-text">
+              <b>No tiene película arrendada</b>
+            </p>
+            <% end %>
 
-  <% else %>
-      <p> <b> No tiene pelicula arrendada </b> </p>
-  <% end %>
-</p>
-    
+            <p>
+              <%= link_to "Mostrar este cliente", customer, class: "btn btn-primary" %>
+            </p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <p>
+        <%= link_to "Nuevo cliente", new_customer_path, class: "btn btn-success" %>
+      </p>
+    </div>
 
-
-      <%= link_to "Show this customer", customer %>
-   
-  <% end %>
+    <div class="col-8">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag '1.png', class:"d-block w-100", alt:"blockbuster" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag 'carri5.jpg', class:"d-block w-100", alt:"mixpelis" %>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New customer", new_customer_path %>

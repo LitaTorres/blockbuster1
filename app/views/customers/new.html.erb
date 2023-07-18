@@ -1,9 +1,15 @@
-<h1>New customer</h1>
-
-<%= render "form", customer: @customer %>
-
-<br>
-
-<div>
-  <%= link_to "Back to customers", customers_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>Registrarse</h1>
+      <%= render "form", customer: @customer %>
+      <br>
+      <div>
+        <%= link_to "Volver a todos los clientes", customers_path %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= image_tag '0.png', class: "img-fluid", alt:"blockbuster", style: "width: 900px; height: 500px; object-fit: cover; margin-bottom: 40px;" %>
+    </div>
+  </div>
 </div>

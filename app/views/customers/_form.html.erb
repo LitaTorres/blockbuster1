@@ -1,32 +1,32 @@
 <%= form_with(model: customer) do |form| %>
-  <% if customer.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<% if customer.errors.any? %>
+<div style="color: red">
+  <h2><%= pluralize(customer.errors.count, "error") %> Lo lamento, usted no puede ser registrado:</h2>
 
-      <ul>
-        <% customer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% customer.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+<div style="margin-bottom: 10px;">
+  <%= form.label :name, "Nombre", style: "display: block; font-weight: bold;" %>
+  <%= form.text_field :name, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.label :tin, style: "display: block" %>
-    <%= form.text_field :tin %>
-  </div>
+<div style="margin-bottom: 10px;">
+  <%= form.label :tin, "Rut (con puntos y guión)", style: "display: block; font-weight: bold;" %>
+  <%= form.text_field :tin, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+<div>
+  <%= form.label :email, "Correo", style: "display: block; font-weight: bold;" %>
+  <%= form.text_field :email, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+<div style="margin-bottom: 10px;">
+  <%= form.submit "Guardar", class: "btn btn-primary" %>
+</div>
 <% end %>

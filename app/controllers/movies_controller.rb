@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to movie_url(@movie), notice: "Movie was successfully created." }
+        format.html { redirect_to movie_url(@movie), notice: "Película fue creada con éxito." }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
     if movie_params['customer_id'] == "1" # si movie params es = a 1 (1es el videoclub) no le aplica la validación 
       respond_to do |format| #y se hace todo normal esto
         if @movie.update(movie_params)
-          format.html { redirect_to movie_url(@movie), notice: "Movie was successfully updated." }
+          format.html { redirect_to movie_url(@movie), notice: "Película entregada satisfactoriamente" }
           format.json { render :show, status: :ok, location: @movie }
         else
           format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
       else
         respond_to do |format| #y se hace todo normal esto
           if @movie.update(movie_params)
-            format.html { redirect_to movie_url(@movie), notice: "Movie was successfully updated." }
+            format.html { redirect_to movie_url(@movie), notice: "Película actualizada satisfactoriamente." }
             format.json { render :show, status: :ok, location: @movie }
           else
             format.html { render :edit, status: :unprocessable_entity }
@@ -72,7 +72,7 @@ end
     @movie.destroy
 
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: "Movie was successfully destroyed." }
+      format.html { redirect_to movies_url, notice: "La película ha sido eliminada." }
       format.json { head :no_content }
     end
   end

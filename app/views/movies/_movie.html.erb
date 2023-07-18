@@ -1,16 +1,16 @@
 <div id="<%= dom_id movie %>">
   <p>
-    <strong>Title:</strong>
+    <strong>Titulo:</strong>
     <%= movie.title %>
   </p>
 
   <% if movie.customer.present? %>
-    <p> <b>Clientes de <%= movie.title %>:</b> </p>
-    <ul>
-      <li><%= movie.customer.name %></li>
-    </ul>
+  <p> <b>Clientes de <%= movie.title %>:</b> </p>
+  <ul>
+    <li><%= movie.customer.name %></li>
+  </ul>
   <% else %>
-    <p> <b>No tiene clientes aún</b> </p>
+  <p> <b>No tiene clientes aún</b> </p>
   <% end %>
 </div>
 
